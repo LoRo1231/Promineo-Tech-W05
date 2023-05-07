@@ -1,15 +1,14 @@
 //Menu App for Favorite Books & Characters
 
 class FavoriteCharacters{
-    constructor (name, book){
-        this.name = name;
-        this.book = book;
-        // this.favoriteCharacters = []; //does not add to array
-    }
+        constructor (name){
+            this.name = name;
+            // this.favoriteCharacters = []; //does not add to array
+        }
 
-describe(){
-    return `${this.name} - from the book : ${this.book}`; //This line is not returning
-}
+    describe(){
+        return `${this.name} is on of my favorite characters`; //This line is not returning
+    }
 }
 
 //---------------------------------------------------------------
@@ -19,13 +18,9 @@ class FavoriteBooks{
         this.book = book;
         // this.favoriteBooks = []; //does not add to array
     }
-    // addFavoriteBook(book){
-    //     if (book instanceof FavoriteCharacters){
-    //     this.favoriteBooks.push(book); //changed to .arrayname instead of method name - fixed the infinte loop
-    //     }
-    // }
+
     describe(){
-        return `${this.book} is one of my favorites.`;
+        return `${this.book} is one of my favorites.`; //This line is not returning
     }
 }
 
@@ -84,25 +79,22 @@ class Menu{
 
     addFavoriteCharacter(){
         let name = prompt("Who is your favorite book character?");
-        let book = prompt("What book are they from?");
-        this.favoriteCharacters.push(new FavoriteCharacters(name,book));
+        this.favoriteCharacters.push(new FavoriteCharacters(name));
     }
 
     addFavoriteBook (){
-        let name = prompt("What is your favorite book?");
-        if (name instanceof FavoriteCharacters){
-            this.favoriteBooks.push(new FavoriteBooks(name));
+        let book = prompt("What is your favorite book?");
+        this.favoriteBooks.push(new FavoriteBooks(book));
         }
-    }
 
-    deleteFavoriteCharacter (){
+    deleteFavoriteCharacter (){ //can't test, array is not showing
         let index = prompt("Enter the index number of the character you'd like to delete");
         if (index > -1 && index < this.favoriteCharacter){
             this.favoriteCharacter.name.splice(index,1);
         }
     }
 
-    deleteFavoriteBook (){
+    deleteFavoriteBook (){ //can't test, array is not showing
         let index = prompt("Enter the index number of the book you'd like to delete");
         if (index > -1 && index < this.favoriteBooks){
             this.favoriteBooks.name.splice(index,1);
