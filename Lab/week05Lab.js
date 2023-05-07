@@ -52,11 +52,19 @@ console.log(
 
 /*
  * Using the person object from above and the given console.log for reference:
- * Step 1: Print to the console the following sentence (make sure to fill in the name, and year programmatically): "On July 20th 1969, Niel Armstrong was the first person to set foot on the Earth's moon."
+ * Step 1: Print to the console the following sentence (make sure to fill in the name, 
+ * and year programmatically): 
+ * 
+ * "On July 20th 1969, Niel Armstrong 
+ * was the first person to set foot on the Earth's moon."
+ * 
  * Notice that the provided console above is using template literals.
  *
  * ↓ YOUR CODE HERE ↓ */
 // "On July 20th 1969, Niel Armstrong was the first person to set foot on the Earth's moon."
+
+console.log(`On July 20th ${person.year}, ${person.firstname + person.lastname} was the first person to set foot on the Earth's moon.`);
+
 
 /*-------------------------------------------------------*/
 // Question 2: Instance of a Class
@@ -85,6 +93,10 @@ greeting.hello()
  * Step 3: A greeting should print to the console
  *
  * ↓ YOUR CODE HERE ↓ */
+
+let myGreeting = new Greeting('Logan', 'KY');
+myGreeting.hello();
+
 
 /*-------------------------------------------------------*/
 // Question 3: myBook
@@ -115,6 +127,17 @@ class Book {
  *
  * ↓ YOUR CODE HERE ↓ */
 
+let myBook = new Book('Pride and Prejudice','Jane Austen');
+
+console.log(myBook.title);
+console.log(myBook.author);
+
+console.log(myBook.describe());
+
+let yourBook = new Book('The Hunger Games', 'Susan Collins');
+
+console.log(yourBook.describe());
+
 /*-------------------------------------------------------*/
 // Question 4: Create a Class
 console.log(`--------------------------
@@ -130,12 +153,34 @@ Question 4: Create a Class \n`)
  *
  * ↓ YOUR CODE HERE ↓ */
 
+class Fruit{
+  constructor(name, color, taste){
+    this.name = name;
+    this.color = color;
+    this.taste = taste;
+  }
+  describe(){
+    console.log(`A ${this.name} is the color ${this.color} and tastes ${this.taste}`);
+  }
+}
+
+let fruit1 = new Fruit('lime', 'green', 'sour');
+console.log(fruit1.describe());
+
+let fruit2 = new Fruit('banana', 'yellow', 'sweet');
+console.log(fruit2.describe());
+
+
+
 /*-------------------------------------------------------*/
 // Question 5: Inheritance and Polymorphism
 console.log(`--------------------------
 Question 5: Inheritance and Polymorphism \n`)
 
-// Look at the provided code below. Notice how Student and Teacher inherit from the Person class through the use of the "extends" and "super" key words. Also, how Student has a redefined details method that is more appropriate than the details method it would have inherited from the Person super class...
+// Look at the provided code below. Notice how Student and Teacher inherit from the 
+//Person class through the use of the "extends" and "super" key words.
+// Also, how Student has a redefined details method that is more appropriate than the 
+//details method it would have inherited from the Person super class...
 
 class Person {
   constructor(name, role) {
@@ -173,6 +218,13 @@ class Teacher extends Person {
  * Step 4: Call the introduction method on your new teacher instance AND the details method, make sure that the results are printed to the console.
  *
  * ↓ YOUR CODE HERE ↓ */
+
+let student = new Student('Jacky', 'Student');
+let teacher = new Teacher('Mr. Bean', 'Teacher');
+
+console.log(student.perseon.introduction().details());
+console.log(teacher.introduction().details());
+
 
 /*-------------------------------------------------------*/
 // Question 6: Inheritance
